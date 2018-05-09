@@ -59,3 +59,6 @@ typings/
 
 # token storage
  token.txt
+
+#IDE
+.idea/
