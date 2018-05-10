@@ -30,11 +30,27 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    if(command === "ping") {
-        const m = await message.channel.send("Ping?");
+    if(command === 'ping') {
+        const m = await message.channel.send('Ping?');
         m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
     }
 
+    if(command === 'avatar') {
+        message.reply(message.author.avatarURL);
+    }
+
+});
+
+client.on('guildMemberAdd', async member => {
+    member.channel.send('Welcome ' + member.name + ' to the server')
+});
+
+client.on('guildMemberRemove', async member => {
+    member.channel.send('Cya ' + member.name)
+});
+
+client.on('roleCreate', async role => {
+    role.channel.send('Role ' + role.name + ' created')
 });
 
 client.login(config.token);
