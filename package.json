@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "discord.js": "^11.3.2"
+    "discord.js": "^11.3.2",
+    "eslint": "^4.19.1"
   }
 }
